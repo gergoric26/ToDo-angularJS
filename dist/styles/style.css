@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+}
+
+.box {
+  width: 400px;
+  margin: 40px;
+  border: solid black 2px;
+  padding: 0;
+  background: #A8A8A8;
+}
+
+.task-list {
+  box-shadow: inset 0 0 10px #777777;
+}

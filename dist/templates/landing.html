@@ -1,1 +1,24 @@
-<h1>Home Page</h1>
+<div class='box'>
+
+  <nav>
+    <h1>Current Task</h1>
+  </nav>
+
+  <div>
+    <div class="task-list">
+      <table>
+        <ul>
+          <li ng-repeat='task in landing.taskList'><span class="valueItems">{{task.name}}</span><br /></li>
+        </ul>
+      </table>
+    </div>
+
+    <div class='footer'>
+      <form ng-submit='landing.addTask()'>
+        <input type="text" ng-model="landing.taskValue">
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+
+</div>
