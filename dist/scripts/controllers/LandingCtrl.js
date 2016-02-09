@@ -4,6 +4,12 @@
 
     var fbarray = $firebaseArray(ref);
 
+    this.addTask = function(){
+      fbarray.$add({name: this.taskValue})
+    }
+
+    this.taskList = fbarray
+
   }
 
   angular
