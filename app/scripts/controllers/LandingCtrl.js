@@ -7,7 +7,7 @@
     this.addTask = function(){
       fbarray.$add({
         name: this.taskValue,
-        timestamp: Firebase.ServerValue.TIMESTAMP,
+        createAt: Firebase.ServerValue.TIMESTAMP,
         priority: this.priority
       })
     }
@@ -18,16 +18,16 @@
       fbarray.$save(task);
     };
 
-    this.expiredTask = function() {
-      for (var i = 0; i < this.taskList.length; i++) {
-        var interval = new Date() - new Date(this.taskList[i].timestamp); 
-        if (interval > 2) {
-          this.taskList[i].expired = true;
-        }
-      };
+    this.expiredTask = function(task) {
+      //var experation = task.timestamp.createAt + (7 * 24 * 60 * 60 * 1000)
+      var experation = task.createAt + (3 * 1000)
+      if (Date.now() > experation) {
+        return true
+      }
+      return false
     };
+  };
 
-  }
 
   angular
     .module('blocitoff')

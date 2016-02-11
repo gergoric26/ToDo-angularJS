@@ -8,8 +8,9 @@
     <div class="task-list">
       <table>
         <ul>
-          <li ng-repeat='task in archive.taskList' ng-show="task.done || expiredTask"><span class="valueItems">{{task.name}}</span>
-            <a href="" ng-click="archive.taskList.$remove(task)" class='fa fa-trash'></a>
+          <li ng-repeat='task in archive.taskList' ng-show="task.done || archive.expiredTask(task)">
+            <span class="valueItems">{{task.name}}</span>
+            <button ng-click="archive.taskList.$remove(task)" class='fa fa-trash'></button>
           </li>
         </ul>
       </table>
