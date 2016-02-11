@@ -19,3 +19,7 @@ body {
   opacity: 0;
   padding: 0 10px;
 }
+
+.priority {
+  color: red;
+}
