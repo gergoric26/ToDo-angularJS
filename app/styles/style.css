@@ -23,3 +23,11 @@ body {
 .priority {
   color: red;
 }
+
+.footer {
+  padding-top: 10px; 
+}
+
+.submit {
+  background: #66ccff;
+}
