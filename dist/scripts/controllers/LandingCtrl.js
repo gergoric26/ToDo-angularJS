@@ -5,10 +5,26 @@
     var fbarray = $firebaseArray(ref);
 
     this.addTask = function(){
-      fbarray.$add({name: this.taskValue})
+      fbarray.$add({
+        name: this.taskValue,
+        timestamp: Firebase.ServerValue.TIMESTAMP
+      })
     }
 
     this.taskList = fbarray
+
+    this.saveTask = function(task){
+      fbarray.$save(task);
+    };
+
+    this.expiredTask = function() {
+      for (var i = 0; i < this.taskList.length; i++) {
+        var interval = new Date() - new Date(this.taskList[i].timestamp); 
+        if (interval > 2) {
+          this.taskList[i].expired = true;
+        }
+      };
+    };
 
   }
 

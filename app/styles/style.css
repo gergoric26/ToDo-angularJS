@@ -13,3 +13,9 @@ body {
 .task-list {
   box-shadow: inset 0 0 10px #777777;
 }
+
+.animate-hide.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
