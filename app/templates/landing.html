@@ -8,7 +8,10 @@
     <div class="task-list">
       <table>
         <ul>
-          <li ng-repeat='task in landing.taskList'><span class="valueItems">{{task.name}}</span><br /></li>
+          <li ng-repeat='task in landing.taskList' ng-hide="task.done || expiredTask"><span class="valueItems">{{task.name}}</span>
+            <a href="" ng-click="landing.taskList.$remove(task)" class='fa fa-trash'></a>
+            <input type="checkbox" ng-model="task.done" ng-click="landing.saveTask(task)"><br />
+          </li>
         </ul>
       </table>
     </div>
@@ -16,8 +19,9 @@
     <div class='footer'>
       <form ng-submit='landing.addTask()'>
         <input type="text" ng-model="landing.taskValue">
-        <input type="submit">
+        <input type="submit"><br/>
       </form>
+      <button ui-sref="archive">Archive</button>
     </div>
   </div>
 
