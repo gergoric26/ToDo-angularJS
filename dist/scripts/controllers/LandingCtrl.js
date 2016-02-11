@@ -7,7 +7,8 @@
     this.addTask = function(){
       fbarray.$add({
         name: this.taskValue,
-        timestamp: Firebase.ServerValue.TIMESTAMP
+        timestamp: Firebase.ServerValue.TIMESTAMP,
+        priority: this.priority
       })
     }
 

@@ -8,7 +8,9 @@
     <div class="task-list">
       <table>
         <ul>
-          <li ng-repeat='task in landing.taskList' ng-hide="task.done || expiredTask"><span class="valueItems">{{task.name}}</span>
+          <li ng-repeat='task in landing.taskList | orderBy: "-priority"' ng-hide="task.done || expiredTask">
+            <span>{{task.name}}</span>
+            <span class='priority'>{{task.priority}}</span>
             <a href="" ng-click="landing.taskList.$remove(task)" class='fa fa-trash'></a>
             <input type="checkbox" ng-model="task.done" ng-click="landing.saveTask(task)"><br />
           </li>
@@ -18,7 +20,12 @@
 
     <div class='footer'>
       <form ng-submit='landing.addTask()'>
-        <input type="text" ng-model="landing.taskValue">
+        <input type="text" ng-model="landing.taskValue"><br/>
+        <label>Priority:
+          <label><input type='radio' ng-model="landing.priority" value="!!!">High!</label>
+          <label><input type='radio' ng-model="landing.priority" value="!!">Medium!</label>
+          <label><input type='radio' ng-model="landing.priority" value="!">Low!</label>
+        </label>
         <input type="submit"><br/>
       </form>
       <button ui-sref="archive">Archive</button>
